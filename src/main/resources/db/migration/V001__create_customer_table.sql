@@ -4,6 +4,8 @@ customer (
     first_name VARCHAR(120) NOT NULL,
     full_name VARCHAR(300) NOT NULL,
     email VARCHAR(150) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    phone_number VARCHAR(12) NOT NULL,
     customer_password VARCHAR(150) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

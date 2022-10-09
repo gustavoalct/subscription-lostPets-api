@@ -12,7 +12,9 @@ public class Customer {
     private final String firstName;
     private final String fullName;
     private final String email;
+    private final String cpf;
     private final String password;
+    private final String phoneNumber;
     private final LocalDateTime createdAt;
     private final LocalDateTime updatedAt;
 
@@ -21,6 +23,8 @@ public class Customer {
         this.firstName = customerRequest.getFirstName();
         this.fullName = customerRequest.getFullName();
         this.email = customerRequest.getEmail();
+        this.cpf = customerRequest.getCpf();
+        this.phoneNumber = customerRequest.getPhoneNumber();
         this.password = customerRequest.getPassword();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
@@ -31,12 +35,18 @@ public class Customer {
         this.firstName = customerDBO.getFirstName();
         this.fullName = customerDBO.getFullName();
         this.email = customerDBO.getEmail();
+        this.cpf = customerDBO.getCpf();
+        this.phoneNumber = customerDBO.getPhoneNumber();
         this.password = customerDBO.getPassword();
         this.createdAt = customerDBO.getCreatedAt();
         this.updatedAt = customerDBO.getUpdatedAt();
     }
     public UUID getId() {
         return id;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public String getFirstName() {
@@ -49,6 +59,10 @@ public class Customer {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getPassword() {

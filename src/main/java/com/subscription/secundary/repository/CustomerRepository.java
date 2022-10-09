@@ -6,10 +6,12 @@ import com.subscription.secundary.dbo.CustomerDBO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerDBO, UUID> {
 
-    CustomerDBO findByEmailAndPassword(String email, String password);
+    Optional<CustomerDBO> findByEmailAndPassword(String email, String password);
+    Optional<CustomerDBO> findByEmail(String email);
 }

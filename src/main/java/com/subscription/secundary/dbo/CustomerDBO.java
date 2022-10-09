@@ -4,10 +4,7 @@ import com.subscription.domain.customer.model.Customer;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -24,8 +21,15 @@ public class CustomerDBO {
     @Column(name = "full_name")
     private String fullName;
     private String email;
+    private String cpf;
+    @Column(name = "phone_number")
+    private String phoneNumber;
     @Column(name = "customer_password")
     private String password;
+    @OneToMany
+    @Column(name = "address_id")
+    private CustomerAddressDBO customerAddressDBO;
+
 
     @CreatedDate
     @Column(updatable = false)
@@ -36,11 +40,14 @@ public class CustomerDBO {
     public CustomerDBO() {
     }
 
-    public CustomerDBO(Customer customer) {
+    public CustomerDBO(Customer customer, CustomerAddressDBO customerAddressDBO) {
         this.id = customer.getId();
         this.firstName = customer.getFirstName();
         this.fullName = customer.getFullName();
         this.email = customer.getEmail();
+        this.cpf = customer.getCpf();
+        this.phoneNumber = customer.getPhoneNumber();
+        this.customerAddressDBO = customerAddressDBO;
         this.password = customer.getPassword();
         this.createdAt = customer.getCreatedAt();
         this.updatedAt = customer.getUpdatedAt();
@@ -62,8 +69,20 @@ public class CustomerDBO {
         return email;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public CustomerAddressDBO getCustomerAddressDBO() {
+        return customerAddressDBO;
     }
 
     public LocalDateTime getCreatedAt() {

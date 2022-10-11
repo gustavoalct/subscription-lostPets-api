@@ -1,9 +1,10 @@
 package com.subscription.domain.customer.model;
 
-import com.subscription.primary.customer.dto.CustomerRequest;
+import com.subscription.primary.customer.dto.request.CustomerRequest;
 import com.subscription.secundary.dbo.CustomerDBO;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Customer {
@@ -40,6 +41,18 @@ public class Customer {
         this.password = customerDBO.getPassword();
         this.createdAt = customerDBO.getCreatedAt();
         this.updatedAt = customerDBO.getUpdatedAt();
+    }
+
+    public Customer(Optional<Customer> customerDBO) {
+        this.id = customerDBO.get().getId();
+        this.firstName = customerDBO.get().getFirstName();
+        this.fullName = customerDBO.get().getFullName();
+        this.email = customerDBO.get().getEmail();
+        this.cpf = customerDBO.get().getCpf();
+        this.phoneNumber = customerDBO.get().getPhoneNumber();
+        this.password = customerDBO.get().getPassword();
+        this.createdAt = customerDBO.get().getCreatedAt();
+        this.updatedAt = customerDBO.get().getUpdatedAt();
     }
     public UUID getId() {
         return id;

@@ -12,17 +12,20 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "customer")
-@Table(name = "customer")
+@Entity(name = "customer_address")
+@Table(name = "customer_address")
 public class CustomerAddressDBO {
 
     @Id
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
+    @Column(name = "customer_id")
+    private UUID customerId;
     private String street;
     private String uf;
     private String district;
-    private String number;
+    private Integer number;
+    @Column(name = "code_postal")
     private String codePostal;
     private String reference;
 
@@ -39,6 +42,7 @@ public class CustomerAddressDBO {
         this.id = address.getId();
         this.street = address.getStreet();
         this.uf = address.getUf();
+        this.customerId = address.getCustomerId();
         this.district = address.getDistrict();
         this.number = address.getNumber();
         this.codePostal = address.getCodePostal();
@@ -59,11 +63,15 @@ public class CustomerAddressDBO {
         return uf;
     }
 
+    public UUID getCustomerId() {
+        return customerId;
+    }
+
     public String getDistrict() {
         return district;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 

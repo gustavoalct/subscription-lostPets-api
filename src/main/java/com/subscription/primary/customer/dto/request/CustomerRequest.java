@@ -1,13 +1,12 @@
-package com.subscription.primary.customer.dto;
+package com.subscription.primary.customer.dto.request;
 
 public class CustomerRequest {
     private String firstName;
     private String fullName;
     private String email;
     private String cpf;
-    private String PhoneNumber;
+    private String phoneNumber;
     private String password;
-    private AddressRequest addressRequest;
 
     public String getFirstName() {
         return firstName;
@@ -30,10 +29,7 @@ public class CustomerRequest {
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
-    public AddressRequest getAddressRequest() {
-        return addressRequest;
-    }
 }

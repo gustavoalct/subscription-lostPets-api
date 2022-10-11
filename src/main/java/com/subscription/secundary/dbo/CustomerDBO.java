@@ -26,9 +26,6 @@ public class CustomerDBO {
     private String phoneNumber;
     @Column(name = "customer_password")
     private String password;
-    @OneToMany
-    @Column(name = "address_id")
-    private CustomerAddressDBO customerAddressDBO;
 
 
     @CreatedDate
@@ -40,18 +37,18 @@ public class CustomerDBO {
     public CustomerDBO() {
     }
 
-    public CustomerDBO(Customer customer, CustomerAddressDBO customerAddressDBO) {
+    public CustomerDBO(Customer customer) {
         this.id = customer.getId();
         this.firstName = customer.getFirstName();
         this.fullName = customer.getFullName();
         this.email = customer.getEmail();
         this.cpf = customer.getCpf();
         this.phoneNumber = customer.getPhoneNumber();
-        this.customerAddressDBO = customerAddressDBO;
         this.password = customer.getPassword();
         this.createdAt = customer.getCreatedAt();
         this.updatedAt = customer.getUpdatedAt();
     }
+
 
     public UUID getId() {
         return id;
@@ -79,10 +76,6 @@ public class CustomerDBO {
 
     public String getPassword() {
         return password;
-    }
-
-    public CustomerAddressDBO getCustomerAddressDBO() {
-        return customerAddressDBO;
     }
 
     public LocalDateTime getCreatedAt() {

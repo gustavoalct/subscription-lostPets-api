@@ -1,13 +1,20 @@
-package com.subscription.primary.customer.dto;
+package com.subscription.primary.customer.dto.request;
+
+import java.util.UUID;
 
 public class AddressRequest {
 
+    private UUID customerId;
     private String street;
     private String uf;
     private String district;
-    private String number;
+    private Integer number;
     private String codePostal;
     private String reference;
+
+    public UUID getCustomerId() {
+        return customerId;
+    }
 
     public String getStreet() {
         return street;
@@ -21,7 +28,7 @@ public class AddressRequest {
         return district;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 

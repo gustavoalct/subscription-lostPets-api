@@ -1,11 +1,12 @@
 CREATE TABLE IF NOT EXISTS
 customer_address (
     id UUID PRIMARY KEY NOT NULL,
+    customer_id UUID NOT NULL,
     street VARCHAR(120) NOT NULL,
     uf VARCHAR(2) NOT NULL,
     district VARCHAR(150) NOT NULL,
     number INTEGER NOT NULL,
-    postal_code VARCHAR(12) NOT NULL,
+    code_postal VARCHAR(12) NOT NULL,
     reference VARCHAR(150) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
